@@ -18,7 +18,7 @@ ERC-20 Compliance: The Token contract adheres to the ERC-20 standard, providing 
 ## Transfer Tokens:
  The contract includes a custom transferTokens function that wraps the standard transfer function from the ERC-20 standard, providing a simplified interface for token transfers.
 
-Usage
+## Usage
 Deployment:
 
 Deploy the contract to the Ethereum blockchain, specifying the necessary parameters (token title, code, decimals, and magnitude).
@@ -33,7 +33,7 @@ Transferring Tokens:
 
 Use the transferTokens function to transfer tokens to another address. This function wraps the standard ERC-20 transfer function.
 
-Requirements
+## Requirements
 Solidity Compiler v0.8.0 
 OpenZeppelin Contracts Library
 
