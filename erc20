@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract Token is ERC20 {
+    address public contracter;
+    
+    constructor(
+    string memory tokenTitle,
+    string memory tokenCode,
+    uint8 decimals,
+    uint256 magnitude
+) ERC20(tokenTitle, tokenCode) {
+    _mint(msg.sender, magnitude * (10**decimals));
+    contracter = msg.sender;
+}
+
+
+    function mintTokens(address _place, uint256 magnitude) public {
+        require(msg.sender == contracter, "Only the contracter can mint tokens.");
+        _mint(_place, magnitude);
+    }
+
+    function burnTokens(uint256 magnitude) public {
+        _burn(msg.sender, magnitude);
+    }
+
+    function transferTokens(address place_ , uint256 magnitude) public returns (bool) {
+        transfer( place_, magnitude);
+        return true;
+    }
+}
